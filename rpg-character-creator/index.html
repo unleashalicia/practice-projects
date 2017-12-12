@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RPG</title>
     <script>
+
+        const vowels = ['a', 'e', 'i', 'o', 'u'];
+        const nonvowels = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
+        const items = ['a helmet', 'chest armor', 'hand armor', 'leg armor', 'a necklace', '2 rings', 'a weapon', 'a shield'];
+
         const rollStats = diceNumber => {
             let dieRoll = Math.floor(Math.random()*6)+1;
             return diceNumber * dieRoll;
@@ -19,17 +24,8 @@
         const dex = rollStats(3);
         const char = rollStats(3);
 
-        console.log(`Strength: ${str},
-        Intelligence: ${int},
-        Wisdom: ${wis},
-        Constitution: ${con},
-        Dexterity: ${dex},
-        Charisma: ${char}`);
-
         const chooseName = () => {
             const name = [];
-            const vowels = ['a', 'e', 'i', 'o', 'u'];
-            const nonvowels = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
             let nameLength = 3 + Math.floor(Math.random() *10);
             name[0] = vowels[Math.floor(Math.random() * vowels.length)];
             name[0] = name[0].toUpperCase();
@@ -43,7 +39,21 @@
             return name.join('');
         }
 
-        console.log(chooseName());
+
+        const chooseItem = () => {
+            let item = items[Math.floor(Math.random() * items.length)];
+            return item;
+        };
+
+        console.log(`Hello, my name is ${chooseName()}.  My stats are
+        Strength: ${str},
+        Intelligence: ${int},
+        Wisdom: ${wis},
+        Constitution: ${con},
+        Dexterity: ${dex},
+        Charisma: ${char}.
+        I start the game with ${chooseItem()}.
+        Let's play!`);
 
     </script>
 </head>
